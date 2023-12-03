@@ -27,12 +27,12 @@ export default function Search() {
 
     function onEnter() {
         if ((!searchState.value || searchState.value.length === 0) && randomRestaurant?.id !== undefined) {
-            window.location.href = `/search/${encodeURI(searchState.value)}`;
+            window.location.href = `https://restraunt.azurewebsites.net/search/${encodeURI(searchState.value)}`;
             //window.location.href = `/restaurant/${randomRestaurant.id}`;
 
         } else {
-            window.location.href = `/restaurant/${randomRestaurant.id}`;
-            window.location.href = `/search/${encodeURI(searchState.value)}`;
+            window.location.href = `https://restraunt.azurewebsites.net/restaurant/${randomRestaurant.id}`;
+            window.location.href = `https://restraunt.azurewebsites.net/search/${encodeURI(searchState.value)}`;
 
         }
     }
