@@ -31,7 +31,7 @@ type PasswordBody = {
 
 export function useResetpasswordRequest(token: TokenParam, password: PasswordBody, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("/api/forgotPassword/reset", ApiRequestType.POST, token, password, true),
+    new ApiRequest("https://restraunt.azurewebsites.net/api/forgotPassword/reset", ApiRequestType.POST, token, password, true),
     onSuccess,
     onFail,
     false

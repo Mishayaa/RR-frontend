@@ -34,7 +34,7 @@ type SuccessUserResponse = Review;
 
 export function useGetUserReviewRequest(params: UserReviewParams, onSuccess?: onSuccessFn<SuccessUserResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("/api/reviews", ApiRequestType.GET, params as unknown as Params),
+    new ApiRequest("https://restraunt.azurewebsites.net/api/reviews", ApiRequestType.GET, params as unknown as Params),
     onSuccess,
     onFail
   );
