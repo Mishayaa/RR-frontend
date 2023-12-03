@@ -1,17 +1,17 @@
-import useGetFavoriteMoviesRequest from "@api/movie/getFavoriteMoviesRequest";
+import useGetFavoriteRestaurantsRequest from "@api/restaurant/getFavoriteRestaurantsRequest";
 import Paginator from "@components/atomic/Paginator";
 import Error from "@pages/Error";
 import Loading from "@pages/Loading";
 import { useEffect, useState } from "preact/hooks";
 import { toast } from "react-toastify";
-import MovieCard from "./MovieCard";
+import RestaurantCard from "./RestaurantCard";
 import { User } from "@api/commonTypes/user";
 
-interface UserFavoriteMovieList extends Pick<User, "id"> { }
+interface UserFavoriteRestaurantList extends Pick<User, "id"> { }
 
-export default function UserFavoriteMovieList({ id }: UserFavoriteMovieList) {
+export default function UserFavoriteRestaurantList({ id }: UserFavoriteRestaurantList) {
   const [page, setPage] = useState(1);
-  const { call, response, isLoading, isError } = useGetFavoriteMoviesRequest(
+  const { call, response, isLoading, isError } = useGetFavoriteRestaurantsRequest(
     { userId: id, page }, () => { },
     error => toast.error(error.message)
   );
@@ -24,7 +24,7 @@ export default function UserFavoriteMovieList({ id }: UserFavoriteMovieList) {
   return (
     <div>
       {response.success.pages > 1 ? <Paginator page={response.success.page} maxPage={response.success.pages} setPage={setPage} /> : null}
-      {response.success.movies.map(m => <MovieCard {...m} />)}
+      {response.success.restaurants.map(m => <RestaurantCard {...m} />)}
       {response.success.pages > 1 ? <Paginator page={response.success.page} maxPage={response.success.pages} setPage={setPage} /> : null}
     </div>
   );

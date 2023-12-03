@@ -4,11 +4,11 @@ import { Error } from "@api/commonTypes/error";
 
 type RandomTitle = {
   id: number,
-  title: string,
+  name: string,
 };
 
 type SuccessResponse = Array<RandomTitle>;
 type FailResponse = Error;
 
-const useRandomTitleRequest = generateApiHook<SuccessResponse, FailResponse>(new ApiRequest("/api/movie/moviesTitles", ApiRequestType.GET, {}, null, true));
+const useRandomTitleRequest = generateApiHook<SuccessResponse, FailResponse>(new ApiRequest("/api/restaurant/restaurantsNames", ApiRequestType.GET, {}, null, true));
 export default useRandomTitleRequest;

@@ -2,7 +2,7 @@ import useApi, { onFailFn, onSuccessFn } from "@api/base/apiHook";
 import ApiRequest, { ApiRequestType, Params } from "@api/base/apiRequest";
 import { PageParams } from "@api/commonParams/page";
 import { Error } from "@api/commonTypes/error";
-import { Movie } from "@api/commonTypes/movie";
+import { Restaurant } from "@api/commonTypes/restaurant";
 import { Pages } from "@api/commonTypes/pages";
 
 type FavoriteParams = {
@@ -10,14 +10,14 @@ type FavoriteParams = {
 } & PageParams;
 
 type SuccessResponse = {
-  movies: Array<Movie>,
+  restaurants: Array<Restaurant>,
 } & Pages;
 
 type FailResponse = Error;
 
-export default function useGetFavoriteMoviesRequest(params: FavoriteParams, onSuccess: onSuccessFn<SuccessResponse> = null, onFail: onFailFn<FailResponse> = null) {
+export default function useGetFavoriteRestaurantsRequest(params: FavoriteParams, onSuccess: onSuccessFn<SuccessResponse> = null, onFail: onFailFn<FailResponse> = null) {
   return useApi(
-    new ApiRequest("/api/movie/favorites", ApiRequestType.GET, params as unknown as Params),
+    new ApiRequest("/api/restaurant/favorites", ApiRequestType.GET, params as unknown as Params),
     onSuccess,
     onFail
   );

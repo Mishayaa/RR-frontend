@@ -3,7 +3,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { render } from "preact";
 import { LocationProvider, Router, Route } from "preact-iso";
-import { Flip, ToastContainer, toast } from "react-toastify";
 import { tokenStore } from "@stores/tokenStore";
 import Header from "@components/header/Header";
 import Home from "@pages/Home";
@@ -14,10 +13,11 @@ import ResetPassword from "@pages/user/ResetPassword";
 import User from "@pages/user/User";
 import TitleSearch from "@pages/search/TitleSearch";
 import { userStore } from "@stores/userStore";
-import Movie from "@pages/movie/Movie";
-import GenreSearch from "@pages/search/GenreSearch";
+import Restaurant from "@pages/restaurant/Restaurant";
 import UserSetting from "@pages/user/UserSettings";
 import useGetUserRequest from "@api/user/getUserRequest";
+import React from "react";
+import {Flip, toast, ToastContainer} from "react-toastify";
 
 export function App() {
   const token = tokenStore(state => state.token);
@@ -57,9 +57,8 @@ export function App() {
             <Route path="/resetPassword" component={ResetPassword} />
             <Route path="/user/:id" component={User} />
             <Route path="/userSettings/:id" component={UserSetting} />
-            <Route path="/search/:title" component={TitleSearch} />
-            <Route path="/genre/:genre" component={GenreSearch} />
-            <Route path="/movie/:id" component={Movie} />
+            <Route path="/search/:name" component={TitleSearch} />
+            <Route path="/restaurant/:id" component={Restaurant} />
             <Route default component={NotFound} />
           </Router>
         </LocationProvider>

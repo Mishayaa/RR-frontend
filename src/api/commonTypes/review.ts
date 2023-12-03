@@ -3,7 +3,7 @@ import { User } from "./user"
 export type Review = {
   id: number,
   user: User,
-  movieId: number,
+  restaurantId: number,
   review: string,
   rating: number,
 }

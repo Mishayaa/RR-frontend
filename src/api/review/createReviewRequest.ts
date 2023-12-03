@@ -5,7 +5,7 @@ import { Pages } from "@api/commonTypes/pages";
 import { Review } from "@api/commonTypes/review";
 
 type ReviewBody = {
-  movieId: number,
+  restaurantId: number,
   review: string,
   rating: number,
 };

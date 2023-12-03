@@ -1,5 +1,5 @@
 import useGetUserRequest from "@api/user/getUserRequest";
-import UserFavoriteMovieList from "@components/movieCards/UserFavoriteMovieList";
+import UserFavoriteRestaurantList from "@components/restaurantCards/UserFavoriteRestaurantList";
 import UserReviewList from "@components/reviewCards/UserReviewList";
 import ExpandedUserCard from "@components/userCards/ExpandedUserCard";
 import Error from "@pages/Error";
@@ -38,7 +38,7 @@ export default function User({ id }: UserProps) {
       </div>
       {isReviewState ?
         <UserReviewList id={id} /> :
-        <UserFavoriteMovieList id={id} />
+        <UserFavoriteRestaurantList id={id} />
       }
     </div>
   );

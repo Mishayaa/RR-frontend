@@ -6,7 +6,7 @@ import { Pages } from "@api/commonTypes/pages";
 import { Review } from "@api/commonTypes/review";
 
 type ReviewParams = {
-  movieId?: number,
+  restaurantId?: number,
   userId?: number,
 } & PageParams;
 
@@ -26,7 +26,7 @@ export default function useGetReviewsRequest(params: ReviewParams, onSuccess?: o
 }
 
 type UserReviewParams = {
-  movieId: number,
+  restaurantId: number,
   userId: number,
 };
 

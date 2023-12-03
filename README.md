@@ -1,5 +1,5 @@
 # MD-frontend
-frontend for [Movie Diary](https://github.com/datfeelbruh/moviesDiary)
+frontend for [Restaurant Diary](https://github.com/datfeelbruh/moviesDiary)
 
 # Development
 Created with [vite](https://vitejs.dev/)+[preact](https://preactjs.com/) on node ^18.15.0.

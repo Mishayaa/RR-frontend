@@ -1,4 +1,4 @@
-import { Movie } from "@api/commonTypes/movie";
+import { Restaurant } from "@api/commonTypes/restaurant";
 import useCreateReviewRequest from "@api/review/createReviewRequest";
 import useDeleteReviewRequest from "@api/review/deleteReviewRequest";
 import { useGetUserReviewRequest } from "@api/review/getReviewsRequest";
@@ -13,31 +13,31 @@ import { userStore } from "@stores/userStore";
 import { useEffect } from "preact/hooks";
 import { toast } from "react-toastify";
 
-interface ReviewFormProps extends Pick<Movie, "id"> {
+interface ReviewFormProps extends Pick<Restaurant, "id"> {
   toggleChanged: () => void;
 }
 
-export default function MovieReviewForm({ id, toggleChanged }: ReviewFormProps) {
+export default function RestaurantReviewForm({ id, toggleChanged }: ReviewFormProps) {
   const userId = userStore(state => state?.user?.id);
 
-  const { call: getReview, response: review, setResponse: setReview, isLoading: isGetLoading, isError: isGetError } = useGetUserReviewRequest({ movieId: id, userId });
+  const { call: getReview, response: review, setResponse: setReview, isLoading: isGetLoading, isError: isGetError } = useGetUserReviewRequest({ restaurantId: id, userId });
 
   const { call: createReview, isLoading: isCreateLoading } = useCreateReviewRequest(
-    { movieId: id, review: review?.success?.review, rating: review?.success?.rating },
-    data => { review.success = { ...review.success, ...(data) }; setReview(review); toggleChanged(); toast.success("Ревью пользователя успешно создано"); },
+    { restaurantId: id, review: review?.success?.review, rating: review?.success?.rating },
+    data => { review.success = { ...review.success, ...(data) }; setReview(review); toggleChanged(); toast.success("Review was successfully created"); },
     error => toast.error(error.message),
   );
 
   const { call: updateReview, isLoading: isUpdateLoading } = useUpdateReviewRequest(
     review?.success?.id,
     { review: review?.success?.review, rating: review?.success?.rating },
-    () => { setReview({ ...review }); toggleChanged(); toast.success("Ревью пользователя успешно обновлено"); },
+    () => { setReview({ ...review }); toggleChanged(); toast.success("Review was successfully updated"); },
     error => toast.error(error.message),
   );
 
   const { call: deleteReview, isLoading: isDeleteLoading } = useDeleteReviewRequest(
     review?.success?.id,
-    () => { setReview({ fail: review.fail, success: null }); toggleChanged(); toast.success("Ревью пользователя успешно удалено") },
+    () => { setReview({ fail: review.fail, success: null }); toggleChanged(); toast.success("Review was successfully deleted") },
     error => toast.error(error.message),
   );
 
@@ -48,8 +48,7 @@ export default function MovieReviewForm({ id, toggleChanged }: ReviewFormProps) 
     setReview({ ...review });
   }
 
-  // can't set it to number, bc parseFloat("N.") => N
-  // idk what to do PoroSad
+
   function updateReviewRating(value) {
     review.success = { ...review.success, rating: value };
     setReview({ ...review });
@@ -72,13 +71,13 @@ export default function MovieReviewForm({ id, toggleChanged }: ReviewFormProps) 
       <FormTexarea
         value={review?.success?.review ? review.success.review : ""}
         onInput={t => updateReviewText(t.value)}
-        placeholder="Прекрасный фильм, не правда ли?" maxLength={1000} rows={5}
+        placeholder="Leave your review here " maxLength={1000} rows={5}
       />
       <div class="flex flex-row">
         <FormInput
           value={review?.success?.rating ? review.success.rating : ""}
           onInput={t => updateReviewRating(t.value)}
-          placeholder="Оценка" type="number" min={0} max={10} step={0.1} size={3} w="basis-1/12 text-center placeholder-center"
+          placeholder="Rating" type="number" min={0} max={5} step={0.1} size={3} w="basis-1/12 text-center placeholder-center"
         />
         <div class="p-0.5" />
         {
@@ -86,20 +85,20 @@ export default function MovieReviewForm({ id, toggleChanged }: ReviewFormProps) 
             <>
               <FormButton
                 isLoading={isUpdateLoading}
-                text="Обновить"
+                text="Update"
                 name="update"
               />
               <div class="px-0.5" />
               <FormButton
                 isLoading={isDeleteLoading}
-                text="Удалить"
+                text="Delete"
                 name="delete"
               />
             </>
             :
             <FormButton
               isLoading={isCreateLoading}
-              text="Создать"
+              text="Create"
               name="create"
             />
         }

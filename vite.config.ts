@@ -9,9 +9,9 @@ export default defineConfig({
     VitePWA({
       includeAssets: ["/icon/icon-512.png"],
       manifest: {
-        name: "Movies Diary",
-        short_name: "KG",
-        description: "Сайт оценки фильмов",
+        name: "Restaurant Rate",
+        short_name: "RR",
+        description: "",
         theme_color: "#2E3440",
         icons: [
           {
@@ -39,9 +39,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "http://localhost:8000",
-      "/swagger-ui": "http://localhost:8000",
-      "/v3/api-docs": "http://localhost:8000",
+      "/api": "https://restraunt.azurewebsites.net",
+      "/swagger-ui": "https://restraunt.azurewebsites.net",
+      "/v3/api-docs": "https://restraunt.azurewebsites.net",
     }
   }
 });
