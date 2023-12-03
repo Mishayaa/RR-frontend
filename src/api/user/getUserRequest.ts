@@ -8,7 +8,7 @@ type FailResponse = Error;
 
 export default function useGetUserRequest(userId: number, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest(`/api/users/${userId}`, ApiRequestType.GET),
+    new ApiRequest(`https://restraunt.azurewebsites.net/api/users/${userId}`, ApiRequestType.GET),
     onSuccess,
     onFail,
   );

@@ -19,7 +19,7 @@ type FailResponse = Error;
 
 export default function useGetReviewsRequest(params: ReviewParams, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("/api/reviews", ApiRequestType.GET, params as unknown as Params),
+    new ApiRequest("https://restraunt.azurewebsites.net/api/reviews", ApiRequestType.GET, params as unknown as Params),
     onSuccess,
     onFail
   );

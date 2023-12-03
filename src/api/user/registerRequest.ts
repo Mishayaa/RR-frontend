@@ -15,7 +15,7 @@ type FailResponse = Error;
 
 export default function useRegisterRequest(newUser: UserBody, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("/api/users", ApiRequestType.POST, {}, newUser, true),
+    new ApiRequest("https://restraunt.azurewebsites.net/api/users", ApiRequestType.POST, {}, newUser, true),
     onSuccess,
     onFail,
     false,

@@ -17,7 +17,7 @@ type FailResponse = Error;
 
 export default function useGetFavoriteRestaurantsRequest(params: FavoriteParams, onSuccess: onSuccessFn<SuccessResponse> = null, onFail: onFailFn<FailResponse> = null) {
   return useApi(
-    new ApiRequest("/api/restaurant/favorites", ApiRequestType.GET, params as unknown as Params),
+    new ApiRequest("https://restraunt.azurewebsites.net/api/restaurant/favorites", ApiRequestType.GET, params as unknown as Params),
     onSuccess,
     onFail
   );

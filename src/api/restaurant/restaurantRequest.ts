@@ -13,7 +13,7 @@ type FailResponse = Error;
 
 export default function useRestaurantRequest(restaurantId: number,params: MovieParams, onSuccess: onSuccessFn<SuccessResponse> = null, onFail: onFailFn<FailResponse> = null) {
     return useApi(
-        new ApiRequest(`/api/restaurant/${restaurantId}`, ApiRequestType.GET, params as unknown as Params),
+        new ApiRequest(`https://restraunt.azurewebsites.net/api/restaurant/${restaurantId}`, ApiRequestType.GET, params as unknown as Params),
         onSuccess,
         onFail
     );
