@@ -1,5 +1,5 @@
-# MD-frontend
-frontend for [Restaurant Diary](https://github.com/datfeelbruh/moviesDiary)
+# RR-frontend
+frontend for [Restaurant Rate](https://github.com/Mishayaa/restaurantRate)
 
 # Development
 Created with [vite](https://vitejs.dev/)+[preact](https://preactjs.com/) on node ^18.15.0.
