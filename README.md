@@ -1,4 +1,4 @@
-# MD-frontend
+# RR-frontend
 frontend for [Restaurant Rate](https://github.com/Mishayaa/restaurantRate)
 
 # Development
