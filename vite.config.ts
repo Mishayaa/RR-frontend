@@ -39,9 +39,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "https://restraunt.azurewebsites.net",
-      "/swagger-ui": "https://restraunt.azurewebsites.net",
-      "/v3/api-docs": "https://restraunt.azurewebsites.net",
+      "/api": "https://restraunt.azurewebsites.net/",
+      "/swagger-ui": "https://restraunt.azurewebsites.net/",
+      "/v3/api-docs": "https://restraunt.azurewebsites.net/",
     }
   }
 });
