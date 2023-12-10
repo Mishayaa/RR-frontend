@@ -14,7 +14,7 @@ type FailResponse = Error;
 
 export default function useGetMailRequest(email: EmailParam, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("/api/forgotPassword/reset", ApiRequestType.GET, email, null, true),
+    new ApiRequest("https://restaurant-estim.onrender.com/api/forgotPassword/reset", ApiRequestType.GET, email, null, true),
     onSuccess,
     onFail,
     false
@@ -31,7 +31,7 @@ type PasswordBody = {
 
 export function useResetpasswordRequest(token: TokenParam, password: PasswordBody, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("/api/forgotPassword/reset", ApiRequestType.POST, token, password, true),
+    new ApiRequest("https://restaurant-estim.onrender.com/api/forgotPassword/reset", ApiRequestType.POST, token, password, true),
     onSuccess,
     onFail,
     false
