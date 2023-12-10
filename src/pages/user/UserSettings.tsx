@@ -19,7 +19,7 @@ export default function UserSetting({ id }: UserSettingsProps) {
 
   return (
     <div class="flex flex-row gap-2 w-full">
-      <AvatarUpdate />
+     {/*//<AvatarUpdate />*/}
       <UpdateAbout />
     </div>
   );
@@ -31,7 +31,7 @@ function UpdateAbout() {
   const { call, isLoading } = useUpdateAboutRequest(
     user.id,
     { about },
-    data => { setUser(data); toast.success("Описание профиля обновлено"); },
+    data => { setUser(data); toast.success("Description updated!"); },
     error => toast.error(error.message),
   );
 
@@ -48,11 +48,11 @@ function UpdateAbout() {
         <FormTexarea
           value={about}
           onInput={t => setAbout(t.value)}
-          placeholder="Вы не поверите, товарищ следователь..." maxLength={1000} rows={5}
+          placeholder="..." maxLength={1000} rows={5}
         />
         <FormButton
           isLoading={isLoading}
-          text="Обновить описание"
+          text="Update"
         />
       </Form>
     </div>
@@ -78,35 +78,35 @@ function AvatarUpdate() {
     call();
   }
 
-  return (
-    <div class="w-2/6">
-      <Form onSubmit={onSubmit}>
-        <img
-          id="avatar_preview"
-          class="h-auto rounded"
-          width="100%"
-          height={96}
-          src={user.avatar}
-          placeholder="Аватар"
-          alt="Аватар"
-        />
-        <FormInput
-          type="file"
-          accept=".jpeg,.jpg,.png,.gif"
-          onInput={
-            t => {
-              (document.getElementById("avatar_preview") as HTMLImageElement).src = URL.createObjectURL(t.files[0]);
-              formData.set("image", t.files[0]);
-              setFormData(formData);
-            }
-          }
-        />
-        <FormButton
-          isLoading={isLoading}
-          text="Обновить аватар"
-        />
-      </Form>
-    </div>
-  );
+  // return (
+  //   <div class="w-2/6">
+  //     <Form onSubmit={onSubmit}>
+  //       <img
+  //         id="avatar_preview"
+  //         class="h-auto rounded"
+  //         width="100%"
+  //         height={96}
+  //         src={user.avatar}
+  //         placeholder="Аватар"
+  //         alt="Аватар"
+  //       />
+  //       <FormInput
+  //         type="file"
+  //         accept=".jpeg,.jpg,.png,.gif"
+  //         onInput={
+  //           t => {
+  //             (document.getElementById("avatar_preview") as HTMLImageElement).src = URL.createObjectURL(t.files[0]);
+  //             formData.set("image", t.files[0]);
+  //             setFormData(formData);
+  //           }
+  //         }
+  //       />
+  //       <FormButton
+  //         isLoading={isLoading}
+  //         text="Обновить аватар"
+  //       />
+  //     </Form>
+  //   </div>
+  // );
 }
 

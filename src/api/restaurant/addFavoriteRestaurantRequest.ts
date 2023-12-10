@@ -13,7 +13,7 @@ type FailResponse = Error;
 
 export default function useAddFavoriteRestaurantRequest(params: FavoriteParams, onSuccess: onSuccessFn<SuccessResponse> = null, onFail: onFailFn<FailResponse> = null) {
   return useApi(
-    new ApiRequest("https://restraunt.azurewebsites.net/api/restaurant/favorites", ApiRequestType.POST, params as unknown as Params),
+    new ApiRequest("https://restaurant-estim.onrender.com/api/restaurant/favorites", ApiRequestType.POST, params as unknown as Params),
     onSuccess,
     onFail,
     false

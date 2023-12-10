@@ -12,7 +12,7 @@ type FailResponse = Error;
 
 export default function useUpdateAboutRequest(userId: number, updatedAbout: AboutBody, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest(`https://restraunt.azurewebsites.net/api/users/${userId}`, ApiRequestType.PUT, {}, updatedAbout),
+    new ApiRequest(`https://restaurant-estim.onrender.com/api/users/${userId}`, ApiRequestType.PUT, {}, updatedAbout),
     onSuccess,
     onFail,
     false,

@@ -23,5 +23,5 @@ type SuccessResponse = {
 type FailResponse = Error;
 
 export default function useRestaurantSearchRequest(params: SearchParams, onSuccess: onSuccessFn<SuccessResponse> = null, onFail: onFailFn<FailResponse> = null) {
-  return useApi(new ApiRequest("https://restraunt.azurewebsites.net/api/restaurant/search", ApiRequestType.GET, params as unknown as Params), onSuccess, onFail);
+  return useApi(new ApiRequest("https://restaurant-estim.onrender.com/api/restaurant/search", ApiRequestType.GET, params as unknown as Params), onSuccess, onFail);
 }

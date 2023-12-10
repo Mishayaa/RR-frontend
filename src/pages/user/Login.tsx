@@ -45,9 +45,9 @@ export default function Login() {
           <a class="basis-1/2 text-center hover:underline cursor-pointer text-nord4" href="/register">
             Зарегистрироваться
           </a>
-          <a class="basis-1/2 text-center hover:underline cursor-pointer text-nord4" href="/resetPassword">
-            Забыл пароль
-          </a>
+          {/*<a class="basis-1/2 text-center hover:underline cursor-pointer text-nord4" href="/resetPassword">*/}
+          {/*  Забыл пароль*/}
+          {/*</a>*/}
         </div>
       </Form>
     </div>

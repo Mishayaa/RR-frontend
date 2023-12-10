@@ -12,7 +12,7 @@ export default defineConfig({
         name: "Restaurant Rate",
         short_name: "RR",
         description: "",
-        theme_color: "#2E3440",
+        theme_color: "#020202",
         icons: [
           {
             src: "/icon/icon-512.png",
@@ -39,9 +39,9 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "https://restraunt.azurewebsites.net",
-      "/swagger-ui": "https://restraunt.azurewebsites.net",
-      "/v3/api-docs": "https://restraunt.azurewebsites.net",
+      "/api": "https://restaurant-estim.onrender.com/",
+      "/swagger-ui": "https://restaurant-estim.onrender.com/",
+      "/v3/api-docs": "https://restaurant-estim.onrender.com/",
     }
   }
 });

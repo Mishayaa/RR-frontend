@@ -12,7 +12,7 @@ type FailResponse = Error;
 
 export default function useDeleteReviewRequest(reviewId: number, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest(`https://restraunt.azurewebsites.net/api/reviews/${reviewId}`, ApiRequestType.DELETE),
+    new ApiRequest(`https://restaurant-estim.onrender.com/api/reviews/${reviewId}`, ApiRequestType.DELETE),
     onSuccess,
     onFail,
     false

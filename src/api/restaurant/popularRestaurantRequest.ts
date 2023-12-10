@@ -13,5 +13,5 @@ type PopularRestaurant = {
 type SuccessResponse = Array<PopularRestaurant>;
 type FailResponse = Error;
 
-const usePopularTitleRequest = generateApiHook<SuccessResponse, FailResponse>(new ApiRequest("https://restraunt.azurewebsites.net/api/restaurant/popular", ApiRequestType.GET));
+const usePopularTitleRequest = generateApiHook<SuccessResponse, FailResponse>(new ApiRequest("https://restaurant-estim.onrender.com/api/restaurant/popular", ApiRequestType.GET));
 export default usePopularTitleRequest;

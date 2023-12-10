@@ -10,5 +10,5 @@ type RandomTitle = {
 type SuccessResponse = Array<RandomTitle>;
 type FailResponse = Error;
 
-const useRandomTitleRequest = generateApiHook<SuccessResponse, FailResponse>(new ApiRequest("https://restraunt.azurewebsites.net/api/restaurant/restaurantsNames", ApiRequestType.GET, {}, null, true));
+const useRandomTitleRequest = generateApiHook<SuccessResponse, FailResponse>(new ApiRequest("https://restaurant-estim.onrender.com/api/restaurant/restaurantsNames", ApiRequestType.GET, {}, null, true));
 export default useRandomTitleRequest;

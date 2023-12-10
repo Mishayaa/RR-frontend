@@ -19,7 +19,7 @@ type FailResponse = Error;
 
 export default function useGetReviewsRequest(params: ReviewParams, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("https://restraunt.azurewebsites.net/api/reviews", ApiRequestType.GET, params as unknown as Params),
+    new ApiRequest("https://restaurant-estim.onrender.com/api/reviews", ApiRequestType.GET, params as unknown as Params),
     onSuccess,
     onFail
   );
@@ -34,7 +34,7 @@ type SuccessUserResponse = Review;
 
 export function useGetUserReviewRequest(params: UserReviewParams, onSuccess?: onSuccessFn<SuccessUserResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("https://restraunt.azurewebsites.net/api/reviews", ApiRequestType.GET, params as unknown as Params),
+    new ApiRequest("https://restaurant-estim.onrender.com/api/reviews", ApiRequestType.GET, params as unknown as Params),
     onSuccess,
     onFail
   );

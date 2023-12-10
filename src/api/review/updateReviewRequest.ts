@@ -18,7 +18,7 @@ type FailResponse = Error;
 
 export default function useUpdateReviewRequest(reviewId: number, updatedReview: ReviewBody, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest(`https://restraunt.azurewebsites.net/api/reviews/${reviewId}`, ApiRequestType.PUT, {}, updatedReview),
+    new ApiRequest(`https://restaurant-estim.onrender.com/api/reviews/${reviewId}`, ApiRequestType.PUT, {}, updatedReview),
     onSuccess,
     onFail,
     false,

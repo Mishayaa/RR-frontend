@@ -8,7 +8,7 @@ type FailResponse = Error;
 
 export default function useUpdateAvatarRequest(updatedAvatar: FormData, onSuccess?: onSuccessFn<SuccessResponse>, onFail?: onFailFn<FailResponse>) {
   return useApi(
-    new ApiRequest("https://restraunt.azurewebsites.net/api/users/avatar", ApiRequestType.POST, {}, updatedAvatar, false, null),
+    new ApiRequest("/api/users/avatar", ApiRequestType.POST, {}, updatedAvatar, false, null),
     onSuccess,
     onFail,
     false
